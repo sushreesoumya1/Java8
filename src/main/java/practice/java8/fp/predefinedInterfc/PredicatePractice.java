@@ -1,6 +1,7 @@
 package practice.java8.fp.predefinedInterfc;
 
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 import practice.java8.dataMembers.Employee;
@@ -16,6 +17,8 @@ public class PredicatePractice {
 		Predicate<Employee> filterSalGreterThan10000= e->e.getSalary()>10000;
 		Predicate<Employee> filterNameStartsWithD= e-> e.getName().startsWith("D");
 		
+		Consumer<Employee> printEmployees= e-> System.out.print(e);
+		
 		
 		List<Employee> employeesWithSalaryGreaterThan10000=
 				employeeOperation.getEmployees(employeeList, filterSalGreterThan10000);
@@ -24,10 +27,10 @@ public class PredicatePractice {
 		List<Employee> employessWhoseNameStartsWithD=
 				employeeOperation.getEmployees(employeeList, filterNameStartsWithD);
 	
-		
-		System.out.println("employeesWithSalaryGreaterThan10000: "+employeesWithSalaryGreaterThan10000);
-		System.out.println("femaleEmployeeList: "+femaleEmployeeList);
-		System.out.println("employessWhoseNameStartsWithD: "+employessWhoseNameStartsWithD);
+		employeeOperation.printEmployees("employeesWithSalaryGreaterThan10000",
+				employeesWithSalaryGreaterThan10000, printEmployees);
+		employeeOperation.printEmployees("femaleEmployeeList", femaleEmployeeList, printEmployees);
+		employeeOperation.printEmployees("employessWhoseNameStartsWithD", employessWhoseNameStartsWithD, printEmployees);
 	}
 	
 	
