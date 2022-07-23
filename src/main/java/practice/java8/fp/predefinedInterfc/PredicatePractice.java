@@ -3,6 +3,7 @@ package practice.java8.fp.predefinedInterfc;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 import practice.java8.dataMembers.Employee;
 import practice.java8.util.CreateEmployeeList;
@@ -19,6 +20,11 @@ public class PredicatePractice {
 		
 		Consumer<Employee> printEmployees= e-> System.out.print(e);
 		
+		Supplier<List<Employee>> employeeList1= ()-> createEmployeeList.create();
+		
+		/*
+		 * for(Employee e: employeeList1.get()) { System.out.println("---"+e); }
+		 */
 		
 		List<Employee> employeesWithSalaryGreaterThan10000=
 				employeeOperation.getEmployees(employeeList, filterSalGreterThan10000);
@@ -31,6 +37,11 @@ public class PredicatePractice {
 				employeesWithSalaryGreaterThan10000, printEmployees);
 		employeeOperation.printEmployees("femaleEmployeeList", femaleEmployeeList, printEmployees);
 		employeeOperation.printEmployees("employessWhoseNameStartsWithD", employessWhoseNameStartsWithD, printEmployees);
+		
+		//PRINTS TWICE
+		employeeOperation.printEmployees("printEmployeesWithSupplier", employeeList1.get(), printEmployees);
+		
+		
 	}
 	
 	
