@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BinaryOperator;
 
-import practice.java8.dataMembers.Employee;
-import practice.java8.util.CreateEmployeeList;
-
 public class BinaryOperatorPractice {
 
 	public static void main(String[] args) {
