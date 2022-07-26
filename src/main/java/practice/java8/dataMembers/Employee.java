@@ -64,11 +64,12 @@ public class Employee {
 		
 	}
 	
+	@Override
 	public String toString() {
-		return "\n"+"Employee: id: "+id+" name: "+name+" city: "+city
-				+" gender: "+gender+" salary: "+salary;
-		
-		
+		return "Employee [id=" + id + ", name=" + name + ", city=" + city + ", gender=" + gender + ", salary=" + salary
+				+ ", age=" + age + "]";
 	}
+	
+	
 
 }
